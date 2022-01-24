@@ -46,6 +46,9 @@ public:
             }
             case ActionType::Reset: {
                 // default values
+                // for some reason even adventure and survival viewer have the build and mine ability
+                // I guess updating the gamemode to the client takes precedence and
+                // BDS never bothers to set and/or sync it
                 abils.Abilities[(int32_t) AbilitiesIndex::Build].value.val_bool            = true; // 0
                 abils.Abilities[(int32_t) AbilitiesIndex::Mine].value.val_bool             = true; // 1
                 abils.Abilities[(int32_t) AbilitiesIndex::DoorsAndSwitches].value.val_bool = true; // 2
@@ -63,6 +66,7 @@ public:
                         abils.Abilities[(int32_t) AbilitiesIndex::Flying].value.val_bool       = false; // 9
                         abils.Abilities[(int32_t) AbilitiesIndex::MayFly].value.val_bool       = false; // 10
                         abils.Abilities[(int32_t) AbilitiesIndex::Instabuild].value.val_bool   = false; // 11
+                        abils.Abilities[(int32_t) AbilitiesIndex::NoClip].value.val_bool       = false; // 17
                         break;
 
                     case GameType::Creative:
@@ -70,6 +74,7 @@ public:
                         abils.Abilities[(int32_t) AbilitiesIndex::Flying].value.val_bool       = false; // 9
                         abils.Abilities[(int32_t) AbilitiesIndex::MayFly].value.val_bool       = true; // 10
                         abils.Abilities[(int32_t) AbilitiesIndex::Instabuild].value.val_bool   = true; // 11
+                        abils.Abilities[(int32_t) AbilitiesIndex::NoClip].value.val_bool       = false; // 17
                         break;
 
                     case GameType::SurvivalViewer:
@@ -78,6 +83,7 @@ public:
                         abils.Abilities[(int32_t) AbilitiesIndex::Flying].value.val_bool       = true; // 9
                         abils.Abilities[(int32_t) AbilitiesIndex::MayFly].value.val_bool       = true; // 10
                         abils.Abilities[(int32_t) AbilitiesIndex::Instabuild].value.val_bool   = true; // 11
+                        abils.Abilities[(int32_t) AbilitiesIndex::NoClip].value.val_bool       = true; // 17
                         break;
 
                     default: break;
